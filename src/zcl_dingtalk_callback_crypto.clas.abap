@@ -7,9 +7,9 @@ public section.
 
   methods CONSTRUCTOR
     importing
-      value(TOKEN) type STRING
-      value(ENCODINGAESKEY) type STRING
-      value(KEY) type STRING .
+      value(TOKEN) type ZE_CBTOKEN
+      value(ENCODINGAESKEY) type ZE_ENCODINGAESKEY
+      value(KEY) type ZE_APPKEY .
   methods GENERATESIGNATURE
     importing
       value(NONCE) type STRING
@@ -53,9 +53,9 @@ public section.
 protected section.
 private section.
 
-  data TOKEN type STRING .
-  data ENCODINGAESKEY type STRING .
-  data KEY type STRING .
+  data TOKEN type ZE_CBTOKEN .
+  data ENCODINGAESKEY type ZE_ENCODINGAESKEY .
+  data KEY type ZE_APPKEY .
   data AESKEY type XSTRING .
 ENDCLASS.
 
