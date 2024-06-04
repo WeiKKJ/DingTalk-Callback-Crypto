@@ -10,13 +10,6 @@ public section.
       value(TOKEN) type STRING
       value(ENCODINGAESKEY) type STRING
       value(KEY) type STRING .
-  methods GENERATESIGNATURE
-    importing
-      value(NONCE) type STRING
-      value(TIMESTAMP) type STRING
-      value(MSG_ENCRYPT) type STRING
-    returning
-      value(SIGN) type STRING .
   methods GETDECRYPTMSG
     importing
       value(MSG_SIGNATURE) type STRING
@@ -30,6 +23,26 @@ public section.
       CONTENTX_ERROR
       PADDING_ERROR
       APPKEY_ERROR .
+  methods GETENCRYPTEDMAP
+    importing
+      value(CONTENT) type STRING
+    returning
+      value(RES) type STRING .
+protected section.
+private section.
+
+  data TOKEN type STRING .
+  data ENCODINGAESKEY type STRING .
+  data KEY type STRING .
+  data AESKEY type XSTRING .
+
+  methods GENERATESIGNATURE
+    importing
+      value(NONCE) type STRING
+      value(TIMESTAMP) type STRING
+      value(MSG_ENCRYPT) type STRING
+    returning
+      value(SIGN) type STRING .
   methods ENCRYPT
     importing
       value(CONTENT) type STRING
@@ -45,18 +58,6 @@ public section.
       value(CONTENT) type STRING
     returning
       value(MSG_LENX) type XSTRING .
-  methods GETENCRYPTEDMAP
-    importing
-      value(CONTENT) type STRING
-    returning
-      value(RES) type STRING .
-protected section.
-private section.
-
-  data TOKEN type STRING .
-  data ENCODINGAESKEY type STRING .
-  data KEY type STRING .
-  data AESKEY type XSTRING .
 ENDCLASS.
 
 
