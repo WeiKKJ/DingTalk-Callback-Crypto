@@ -48,7 +48,7 @@
     <item>
      <ID>S</ID>
      <KEY>P_TOKEN</KEY>
-     <ENTRY>钉钉时间订阅回调的签名 token</ENTRY>
+     <ENTRY>钉钉事件订阅回调的签名 token</ENTRY>
      <LENGTH>25</LENGTH>
     </item>
    </TPOOL>
