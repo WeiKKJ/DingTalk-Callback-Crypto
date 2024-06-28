@@ -85,13 +85,17 @@ FORM p1 .
       token          = p_token
       encodingaeskey = p_AesKey
       key            = p_key.
-
-  CALL METHOD dingcrypto->getencryptedmap
-    EXPORTING
-      content = str
-    RECEIVING
-      res     = DATA(res).
-
+  TRY.
+      CALL METHOD dingcrypto->getencryptedmap
+        EXPORTING
+          content = str
+        RECEIVING
+          res     = DATA(res).
+    CATCH cx_root INTO DATA(exception).
+      DATA(etext) = exception->if_message~get_text( ).
+      MESSAGE s000(oo) WITH etext DISPLAY LIKE 'E'.
+      RETURN.
+  ENDTRY.
   CLEAR wa_callback.
   /ui2/cl_json=>deserialize( EXPORTING json = res pretty_name = /ui2/cl_json=>pretty_mode-low_case CHANGING data = wa_callback ).
   CALL METHOD dingcrypto->getdecryptmsg
