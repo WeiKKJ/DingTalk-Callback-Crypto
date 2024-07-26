@@ -190,11 +190,7 @@ FORM user_command USING pv_ucomm TYPE sy-ucomm ##CALLED
       CLEAR:detail.
       TRY .
           IMPORT detail = detail FROM DATABASE zabap_log(fl) ID zilogkeystr.
-*          cl_demo_output=>new(
-*           )->begin_section( 'ABAP_LOG查看'
-*           )->end_section(
-*            )->write_json( detail
-*            )->display( ).
+          CHECK detail IS NOT INITIAL.
           CALL TRANSFORMATION sjson2html SOURCE XML detail
                                          RESULT XML DATA(html).
 
