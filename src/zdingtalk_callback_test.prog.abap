@@ -216,7 +216,7 @@ FORM p2 .
     )->begin_section( `解密前字符串：`
     )->write_text( str
     )->next_section( `解密后字符串：`
-    )->write_json( text
+    )->write_text( text
     )->end_section(
     )->display( ).
 ENDFORM.
